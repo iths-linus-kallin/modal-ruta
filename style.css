@@ -1,0 +1,131 @@
+body{
+    margin: 0;
+    font-family: Arial;
+}
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 0.5rem;
+    grid-auto-rows: 30px;
+}
+
+header,main,nav,aside,footer{
+    background: peachpuff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header{
+    justify-content: space-between;
+    flex-direction: row;
+}
+header > * {
+    margin: 1rem;
+}
+
+header i.material-icons{
+    font-size: 2rem;
+}
+
+nav{
+    flex-direction: column;
+    /* justify-content: space-around; */
+    position: fixed;
+    right: 0;
+    background-color: hotpink;
+    height: 100vh;
+    width: 80vw;
+    z-index: 2;
+    transition: right 0.25s ease-out;
+}
+
+.menu-hidden{
+    right: -100vw;
+}
+
+.hidden{
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.fade-layer{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    opacity: 0.25;
+    z-index: 1;
+}
+
+nav a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 1rem;
+    transition: background-color 0.2s;
+}
+
+nav a:hover{
+    background-color: rgba(0,0,0,0.25) 
+}
+
+main{
+    justify-content: flex-start;
+}
+
+p{
+    line-height: 1.6;
+    padding: 16px;
+}
+
+header  { grid-column: span 6; grid-row: span 2; }
+nav     { grid-column: span 6; grid-row: span 1; }
+main    { grid-column: span 6; grid-row: span 25; }
+aside   { grid-column: span 6; grid-row: span 2; }
+footer  { grid-column: span 6; grid-row: span 2;}
+
+@media only screen and (min-device-width: 1224px){
+    nav{
+        position: static;
+        height: auto;
+        width: auto;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .wrapper{
+        grid-gap: 1rem;
+    }
+
+    section {
+        position: fixed;
+        right: 50%;
+        transform: translateX(50%);
+        bottom: -100px;
+        background-color: whitesmoke;
+        border-radius: 10px;
+        z-index: 1;
+        transition: bottom 2s ease;
+        opacity: 0.1;
+    }
+
+    .show {
+        bottom: 100px;
+        opacity: 1;
+    }
+    
+    header{
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    header i.material-icons{
+        display: none;
+    }
+
+    header  { grid-column: span 6; grid-row: span 3; }
+    nav     { grid-column: span 6; grid-row: span 2; }
+    main    { grid-column: span 5; grid-row: span 20; }
+    aside   { grid-column: span 1; grid-row: span 20; }
+}
